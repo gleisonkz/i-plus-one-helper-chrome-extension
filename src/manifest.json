@@ -1,0 +1,21 @@
+{
+  "name": "I+1 Helper",
+  "description": "extensão criada para facilitar a pesquisas e criação de novas frases I+1",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "icons": {
+    "48": "/assets/images/icon.png",
+    "72": "/assets/images/icon.png",
+    "144": "/assets/images/icon.png",
+    "192": "/assets/images/icon.png"
+  },
+  "background": {
+    "scripts": ["background.js", "runtime.js"]
+  },
+  "browser_action": {
+    "default_icon": "/assets/images/icon.png",
+    "default_title": "I+1 Helper",
+    "default_popup": "index.html"
+  },
+  "permissions": ["notifications", "tabs"]
+}
