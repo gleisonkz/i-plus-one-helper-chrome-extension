@@ -15,8 +15,8 @@
   "browser_action": {
     "default_icon": "/assets/images/icon.png",
     "default_title": "I+1 Helper",
-    "default_popup": "index.html"
+    "default_popup": "/index.html#/popup"
   },
-  "options_page": "index.html?page=options",
+  "options_page": "/index.html#/options",
   "permissions": ["notifications", "tabs"]
 }
