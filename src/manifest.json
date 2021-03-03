@@ -17,5 +17,6 @@
     "default_title": "I+1 Helper",
     "default_popup": "index.html"
   },
+  "options_page": "index.html?page=options",
   "permissions": ["notifications", "tabs"]
 }
