@@ -1,1 +1,63 @@
-<p>options works!</p>
+<div class="container mat-elevation-z1">
+  <div class="options">
+    <h1 class="options__title">Configurações</h1>
+    <p class="options__description">
+      utilize o campo abaixo para configurar as URL's que serão abertas pela
+      extensão, as partes variáveis da url deve ser configurada utilizando o
+      metadado [word]. exemplo: "https://www.google.com/<mark>[word]</mark>"
+    </p>
+
+    <mat-form-field class="options__field">
+      <mat-label>Insira uma url</mat-label>
+      <input
+        #input
+        matInput
+        type="text"
+        (keyup.enter)="addUrl()"
+        [formControl]="urlControl"
+      />
+      <button
+        mat-button
+        *ngIf="urlControl.value"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="urlControl.setValue('')"
+      >
+        <mat-icon class="field__icon">close</mat-icon>
+      </button>
+      <mat-error> Url inválida</mat-error>
+    </mat-form-field>
+
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+      [expanded]="panelOpenState"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title> URL's cadastradas </mat-panel-title>
+        <mat-panel-description>
+          url's que serão utilizados pela extensão para abrir as abas.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-chip-list
+        class="options__chip-list"
+        #chipList
+        aria-label="url selection"
+      >
+        <mat-chip
+          class="options__chip"
+          *ngFor="let url of urls"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(url)"
+          highlight
+        >
+          {{ url }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </mat-expansion-panel>
+  </div>
+</div>
