@@ -1,7 +1,7 @@
 <div class="popup">
-  <p class="popup__title">Escreva a palavra que deseja procurar</p>
+  <h2 class="popup__title">I+1 Helper</h2>
   <mat-form-field class="popup__field">
-    <mat-label>Clearable input</mat-label>
+    <mat-label>Digite a palavra procurada</mat-label>
     <input matInput type="text" [formControl]="wordControl" />
     <button
       mat-button
@@ -14,4 +14,14 @@
       <mat-icon class="field__icon">close</mat-icon>
     </button>
   </mat-form-field>
+  <button
+    [disabled]="!wordControl.valid"
+    mat-raised-button
+    class="popup__button"
+    color="primary"
+    type="button"
+    (click)="search()"
+  >
+    Pesquisar
+  </button>
 </div>
