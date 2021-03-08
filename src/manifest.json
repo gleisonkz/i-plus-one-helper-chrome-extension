@@ -1,6 +1,7 @@
 {
   "name": "I+1 Helper",
-  "description": "extensão criada para facilitar a pesquisas e criação de novas frases I+1",
+  "description": "extensão criada para facilitar a pesquisa e criação de novas frases I+1",
+  "author": "Gleison de Almeida Ribeiro",
   "version": "1.0.0",
   "manifest_version": 2,
   "icons": {
@@ -18,5 +19,5 @@
     "default_popup": "/index.html#/popup"
   },
   "options_page": "/index.html#/options",
-  "permissions": ["notifications", "tabs"]
+  "permissions": ["tabs"]
 }
