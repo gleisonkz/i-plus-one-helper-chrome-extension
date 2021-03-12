@@ -1,0 +1,28 @@
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-center-important($direction: row) {
+  display: flex !important;
+  flex-direction: $direction !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+@mixin flex-column() {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin size($width, $height: $width) {
+  width: rem($width) !important;
+  height: rem($height);
+}
+
+@mixin max-size($width, $height: $width) {
+  max-width: rem($width) !important;
+  max-height: rem($height);
+}
