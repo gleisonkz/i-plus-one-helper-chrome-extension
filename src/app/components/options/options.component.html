@@ -1,45 +1,80 @@
-<div class="container mat-elevation-z1">
+<div class="container">
+  <div class="side-info">
+    <header class="side-info__header">
+      <span class="side-info__quote">“</span>
+    </header>
+    <img class="side-info__flag" src="./assets/images/icon.png" />
+
+    <div class="side-info__top">
+      <p class="side-info__description side-info__description--bold">
+        Você quer adicionar uma palavra, termo ou frase no seu vocabulário?<br />
+        Essa extensão irá te auxiliar nesse processo!
+      </p>
+
+      <p class="side-info__description">
+        Configure URL's que irão buscar essa palavra em vários sites diferentes,
+        de forma que você possa adquirir esse conhecimento de diversas formas.
+      </p>
+    </div>
+
+    <div class="side-info__bottom">
+      <p class="side-info__description">
+        Utilize o campo abaixo para configurar as URL's que serão abertas pela
+        extensão.
+      </p>
+      <p class="side-info__description">
+        As partes variáveis da url deve ser configurada utilizando o metadado
+        [word].
+      </p>
+      <p class="side-info__description side-info__description--bold">
+        Exemplo: "https://www.google.com/<mark>[word]</mark>"
+      </p>
+
+      <div class="side-info__circle"></div>
+    </div>
+
+    <footer class="side-info__footer">
+      <div class="social-media-container">
+        <img class="side-info__flag" src="./assets/images/icon.png" />
+        <img class="side-info__flag" src="./assets/images/icon.png" />
+      </div>
+      <span class="side-info__quote">”</span>
+    </footer>
+  </div>
   <div class="options">
-    <h1 class="options__title">Configurações</h1>
-    <p class="options__description">
-      utilize o campo abaixo para configurar as URL's que serão abertas pela
-      extensão, as partes variáveis da url deve ser configurada utilizando o
-      metadado [word]. exemplo: "https://www.google.com/<mark>[word]</mark>"
-    </p>
+    <div class="wrapper">
+      <mat-form-field class="options__field" appearance="fill">
+        <mat-label>Insira uma url</mat-label>
+        <input
+          #input
+          matInput
+          type="text"
+          (keyup.enter)="addUrl()"
+          [formControl]="urlControl"
+        />
+        <!-- <button
+          mat-button
+          *ngIf="urlControl.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="urlControl.setValue('')"
+        >
+          <mat-icon class="field__icon">close</mat-icon>
+        </button> -->
 
-    <mat-form-field class="options__field">
-      <mat-label>Insira uma url</mat-label>
-      <input
-        #input
-        matInput
-        type="text"
-        (keyup.enter)="addUrl()"
-        [formControl]="urlControl"
-      />
-      <button
-        mat-button
-        *ngIf="urlControl.value"
-        matSuffix
-        mat-icon-button
-        aria-label="Clear"
-        (click)="urlControl.setValue('')"
-      >
-        <mat-icon class="field__icon">close</mat-icon>
+        <mat-error> Url inválida</mat-error>
+      </mat-form-field>
+      <button [disabled]="!urlControl.value" class="options__field__button">
+        <mat-icon class="mat-18">add</mat-icon>
+        <span>INSERIR</span>
       </button>
-      <mat-error> Url inválida</mat-error>
-    </mat-form-field>
+    </div>
 
-    <mat-expansion-panel
-      (opened)="panelOpenState = true"
-      (closed)="panelOpenState = false"
-      [expanded]="panelOpenState"
-    >
-      <mat-expansion-panel-header>
-        <mat-panel-title> URL's cadastradas </mat-panel-title>
-        <mat-panel-description>
-          url's que serão utilizados pela extensão para abrir as abas.
-        </mat-panel-description>
-      </mat-expansion-panel-header>
+    <div class="options__panel mat-elevation-z1">
+      <mat-card-header>
+        <mat-card-title> URL's cadastradas </mat-card-title>
+      </mat-card-header>
 
       <mat-chip-list
         class="options__chip-list"
@@ -54,10 +89,10 @@
           (removed)="remove(url)"
           highlight
         >
-          {{ url }}
+          <span> {{ url }}</span>
           <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
         </mat-chip>
       </mat-chip-list>
-    </mat-expansion-panel>
+    </div>
   </div>
 </div>

@@ -1,33 +1,172 @@
+@import "colors";
+@import "functions";
+@import "variables";
+@import "mixins";
+
 .container {
-  background-color: #dbdde0;
   padding: 30px;
-  // height: 100%;
+  display: grid;
+  grid-template-columns: rem(290) 1fr;
+  column-gap: rem(60);
+}
+
+.side-info {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1;
+  background-color: $color-primary;
+  border-radius: 8px;
+  height: rem(600);
+  padding: rem(5 10 20 10);
+  overflow: hidden;
+  position: relative;
+
+  &__header {
+    height: rem(55);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__bottom {
+    margin-top: rem(45);
+  }
+
+  &__circle {
+    background-color: $color-secondary;
+    border-radius: 50%;
+    @include size(600);
+    position: absolute;
+    top: 414px;
+    left: -46px;
+  }
+
+  &__description {
+    z-index: 2;
+    color: $color-surface;
+    font-size: rem(14);
+    font-family: Calibri;
+    margin-top: rem(10);
+
+    &--bold {
+      margin-top: rem(10);
+
+      font-weight: bold;
+    }
+  }
+
+  &__flag {
+    width: 60px;
+    height: 60px;
+    @include size(40);
+  }
+
+  &__quote {
+    font-size: rem(120);
+    font-family: Georgia, serif;
+    position: relative;
+    top: -14px;
+    color: $color-surface;
+  }
+
+  &__footer {
+    position: relative;
+    margin-top: auto;
+    height: rem(37);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  // &::before {
+  //   content: open-quote;
+  //   font-size: rem(200);
+  //   font-family: Georgia, serif;
+  // }
+}
+
+.wrapper {
+  position: relative;
 }
 
 .options {
-  max-width: 900px;
-  padding: 15px 20px;
-  border-radius: 6px;
+  grid-column: 2;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
   flex-direction: column;
-  background-color: white;
-
-  &__description {
-    margin-top: 20px;
-    font-size: 18px;
-  }
 
   &__field {
-    margin-top: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
+
+    &__button {
+      @include flex-center;
+      background-color: $color-primary;
+      color: $color-surface;
+      border-radius: 25px;
+      padding: rem(10);
+      width: rem(120);
+      position: absolute;
+      right: rem(0);
+      bottom: rem(-3);
+      z-index: 2;
+      cursor: pointer;
+      transition: 0.2s background-color, transform 0.2s;
+      outline: none;
+
+      &:hover {
+        background-color: #c7a7f0;
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+
+      &[disabled] {
+        background: rgba(88, 87, 87, 0.87);
+        // color: rgba(0, 0, 0, 0.26);
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+    }
   }
 
   &__chip {
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: Calibri;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__panel {
+    flex-grow: 1;
+    padding: rem(10 22 22 22);
+    margin-top: 20px;
+    background-color: $color-surface;
+
+    mat-card-header {
+      margin: 0;
+
+      mat-card-title {
+        color: $color-primary;
+        font-family: $font-primary;
+        font-size: rem(13);
+      }
+    }
+
+    ::ng-deep .mat-chip-list-wrapper {
+      margin-top: rem(40);
+    }
+
+    mat-chip {
+      margin-top: rem(15);
+      background-color: $color-background;
+      color: $color-primary;
+
+      mat-icon {
+        color: $color-secondary;
+        opacity: 1;
+      }
+    }
   }
 }
 
@@ -36,7 +175,24 @@
   align-items: flex-start !important;
 }
 
-mat-expansion-panel {
-  margin-top: 20px;
-  width: 100%;
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: $color-surface;
+}
+
+// mat-form-field outline label
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-label {
+  color: $color-primary;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background-color: $color-primary;
+}
+::ng-deep .mat-form-field-ripple {
+  background-color: $color-primary;
+}
+
+.mat-input-element,
+.mat-select-value {
+  color: $color-primary;
 }
