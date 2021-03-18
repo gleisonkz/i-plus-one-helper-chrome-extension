@@ -52,20 +52,14 @@
           (keyup.enter)="addUrl()"
           [formControl]="urlControl"
         />
-        <!-- <button
-          mat-button
-          *ngIf="urlControl.value"
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="urlControl.setValue('')"
-        >
-          <mat-icon class="field__icon">close</mat-icon>
-        </button> -->
 
         <mat-error> Url inválida</mat-error>
       </mat-form-field>
-      <button [disabled]="!urlControl.value" class="options__field__button">
+      <button
+        (click)="addUrl()"
+        [disabled]="!urlControl.value"
+        class="options__field__button"
+      >
         <mat-icon class="mat-18">add</mat-icon>
         <span>INSERIR</span>
       </button>
@@ -90,7 +84,7 @@
           highlight
         >
           <span> {{ url }}</span>
-          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          <mat-icon matChipRemove>cancel</mat-icon>
         </mat-chip>
       </mat-chip-list>
     </div>

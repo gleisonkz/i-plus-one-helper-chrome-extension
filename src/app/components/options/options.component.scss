@@ -75,12 +75,6 @@
     display: flex;
     justify-content: space-between;
   }
-
-  // &::before {
-  //   content: open-quote;
-  //   font-size: rem(200);
-  //   font-family: Georgia, serif;
-  // }
 }
 
 .wrapper {
@@ -123,9 +117,7 @@
 
       &[disabled] {
         background: rgba(88, 87, 87, 0.87);
-        // color: rgba(0, 0, 0, 0.26);
-        cursor: not-allowed;
-        pointer-events: none;
+        // pointer-events: none;
       }
     }
   }
@@ -179,8 +171,6 @@
   background-color: $color-surface;
 }
 
-// mat-form-field outline label
-
 ::ng-deep .mat-form-field-appearance-fill .mat-form-field-label {
   color: $color-primary;
 }
@@ -192,7 +182,7 @@
   background-color: $color-primary;
 }
 
-.mat-input-element,
-.mat-select-value {
-  color: $color-primary;
+::ng-deep .mat-input-element,
+::ng-deep .mat-select-value {
+  color: $color-primary !important;
 }

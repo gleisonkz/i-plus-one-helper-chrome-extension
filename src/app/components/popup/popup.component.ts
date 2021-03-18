@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { StorageService } from 'src/app/storage.service';
 
 @Component({
   templateUrl: './popup.component.html',
@@ -7,34 +8,31 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class PopupComponent implements OnInit {
   wordControl: FormControl;
+  private urls: string[];
   @ViewChild('input', { static: true }) $input: ElementRef<HTMLInputElement>;
 
-  constructor() {
+  constructor(private storageService: StorageService) {
     this.wordControl = new FormControl('', [
       Validators.required,
       Validators.minLength(2),
     ]);
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.$input.nativeElement.focus();
+    this.urls = await this.storageService.get();
   }
 
-  search() {
+  async search() {
     if (this.wordControl.invalid) return;
     const word = this.wordControl.value;
 
-    const targetUrls = [
-      `https://www.wordreference.com/enpt/${word}`,
-      `https://context.reverso.net/traducao/ingles-portugues/${word}`,
-      `https://www.oxfordlearnersdictionaries.com/us/definition/english/${word}?q=${word}`,
-      `https://dictionary.cambridge.org/pt/dicionario/ingles/${word}`,
-      `https://translate.google.com.br/?hl=pt&sl=en&tl=pt&text=${word}&op=translate`,
-      `https://youglish.com/pronounce/${word}/english?`,
-    ];
-
-    targetUrls.forEach((url) => {
-      chrome.tabs.create({ url: url });
+    const newWindow = (await this.storageService.openWindow()) as chrome.windows.Window;
+    this.urls.forEach((url) => {
+      const newUrl = url.replace(/\[word\]/g, word);
+      chrome.tabs.create({ url: newUrl, windowId: newWindow.id });
+      chrome.windows.update(newWindow.id, { state: 'maximized' });
     });
+    window.close();
   }
 }

@@ -1,23 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { StorageService } from 'src/app/storage.service';
 
 @Component({
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.scss'],
 })
 export class OptionsComponent implements OnInit {
-  panelOpenState = true;
+  visible = true;
+  selectable = true;
+  removable = true;
   urlControl: FormControl;
-  urls = [
-    `https://www.wordreference.com/enpt/[word]`,
-    `https://context.reverso.net/traducao/ingles-portugues/[word]`,
-    `https://www.oxfordlearnersdictionaries.com/us/definition/english/[word]?q=[word]`,
-    `https://dictionary.cambridge.org/pt/dicionario/ingles/[word]`,
-    `https://translate.google.com.br/?hl=pt&sl=en&tl=pt&text=[word]&op=translate`,
-    `https://youglish.com/pronounce/[word]/english?`,
-  ];
+  urls: string[];
 
-  constructor() {
+  constructor(private storageService: StorageService) {
     this.urlControl = new FormControl('', [
       Validators.required,
       Validators.minLength(2),
@@ -26,22 +22,22 @@ export class OptionsComponent implements OnInit {
   }
 
   addUrl() {
-    this.urlControl.valid && this.urls.push(this.urlControl.value);
+    this.urlControl.valid && this.storageService.set(this.urlControl.value);
     this.urlControl.setValue('');
   }
 
-  word = 'ruthless';
+  async ngOnInit(): Promise<void> {
+    this.urls = await this.storageService.get();
+  }
 
-  visible = true;
-  selectable = true;
-  removable = true;
+  remove(url: string) {
+    console.log('click');
+    // let currentUrls = await this.storageService.get();
+    // currentUrls = currentUrls.filter((c) => url !== c);
+    // console.log(currentUrls);
+  }
 
-  ngOnInit(): void {}
-
-  remove(fruit: string): void {
-    // const index = this.fruits.indexOf(fruit);
-    // if (index >= 0) {
-    //   this.fruits.splice(index, 1);
-    // }
+  test() {
+    console.log('Teste');
   }
 }

@@ -1,3 +1,6 @@
+@import "colors";
+@import "functions";
+
 .popup {
   padding: 20px;
   min-width: 240px;
@@ -5,14 +8,44 @@
   &__title {
     font-size: 18px;
     text-align: center;
+    color: $color-primary;
   }
 
   &__field {
-    margin-top: 10px;
+    margin-top: rem(20);
     width: 100%;
+  }
+
+  &__icon-button {
+    color: $color-primary;
   }
 
   &__button {
     width: 100%;
+
+    &:disabled {
+      color: #989191;
+      background-color: rgb(93 93 93);
+    }
+  }
+
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: $color-surface;
+  }
+
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-label {
+    color: $color-primary;
+  }
+
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before {
+    background-color: $color-primary;
+  }
+  ::ng-deep .mat-form-field-ripple {
+    background-color: $color-primary;
+  }
+
+  ::ng-deep .mat-input-element,
+  ::ng-deep .mat-select-value {
+    color: $color-primary !important;
   }
 }
