@@ -61,7 +61,6 @@ export class StorageService {
     ];
 
     chrome.storage.sync.set({ urls: items }, () => {
-      console.log('Storage Inicializado ' + items);
       this.urls = items;
     });
   }

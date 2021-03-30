@@ -1,43 +1,42 @@
 <div align="right">
-  
-  [![Portuguese](https://www.countryflags.io/br/flat/32.png)](README.md)
-  [![English](https://www.countryflags.io/us/flat/32.png)](README-US.md)
-  
+
+[![Portuguese](https://www.countryflags.io/br/flat/32.png)](README.md)
+[![English](https://www.countryflags.io/us/flat/32.png)](README-ENG.md)
+
 </div>
 
 <p align="center">
   <img alt="Angular 11 Chrome Extension" src=".github/logo.png" width="250px"/>
 </p>
 
-<p align="center"> 
+<p align="center">   
   <img alt="Top Language" src="https://img.shields.io/github/languages/top/gleisonkz/i-plus-one-helper-chrome-extension?color=3498db&style=for-the-badge">
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/gleisonkz/i-plus-one-helper-chrome-extension?color=3498db&style=for-the-badge&label=Ultimo%20Commit">   
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/gleisonkz/i-plus-one-helper-chrome-extension?color=3498db&style=for-the-badge">   
   <a href="https://github.com/gleisonkz">
-    <img alt="Developed by Gleison" src="https://img.shields.io/badge/Developer-Gleison-%3498db?color=3498db&style=for-the-badge&label=Desenvolvedor">
+    <img alt="Developed by Gleison" src="https://img.shields.io/badge/Developer-Gleison-%3498db?color=3498db&style=for-the-badge">
   </a>  
-  <img alt="Project License" src="https://img.shields.io/apm/l/vim-mode?style=for-the-badge&label=licen%C3%A7a"/>   
-   <img alt="Project Status" src="https://img.shields.io/badge/concluído-%3498db?color=green&style=for-the-badge&label=Status">  
-  
+  <img alt="Project License" src="https://img.shields.io/apm/l/vim-mode?style=for-the-badge"/>
+     <img alt="Project Status" src="https://img.shields.io/badge/done-%3498db?color=green&style=for-the-badge&label=Status">  
 </p>
 
 <p align="center">
- <a href="#eye_speech_bubble-visualizar">Visualizar</a> •
- <a href="#information_source-sobre">Sobre</a> •
- <a href="#arrow_forward-executar">Executar</a> •
- <a href="#hammer_and_wrench-tecnologias">Tecnologias</a> • 
- <a href="#brain-conceitos-aplicados">Conceitos</a> •
- <a href="#sparkles-funcionalidades">Funcionalidades</a> •
- <a href="#boy-autor">Autor</a> •
- <a href="#balance_scale-licença">Licença</a>
+ <a href="#eye_speech_bubble-preview">Preview</a> •
+ <a href="#information_source-about">About</a> •
+ <a href="#arrow_forward-run">Run</a> •
+ <a href="#hammer_and_wrench-technologies">Technologies</a> • 
+ <a href="#brain-applied-concepts">Concepts</a> •
+ <a href="#sparkles-features">Features</a> •
+ <a href="#boy-author">Author</a> •
+ <a href="#balance_scale-license">License</a>
 </p>
 
 ---
 
-## :eye_speech_bubble: **Visualizar**
+## :eye_speech_bubble: **Preview**
 
 <div align="center">
 
-A extensão encontra-se publicada na Chrome Web Store e pode ser baixada por este link [aqui](https://chrome.google.com/webstore/detail/i%2B1-helper/pahefalbpfookcihpfalcoalamcbggme?hl=en&authuser=0)
+Extension deployed at [Chrome Web Store](https://chrome.google.com/webstore/category/extensions) to see: [Click Here](https://chrome.google.com/webstore/detail/i%2B1-helper/pahefalbpfookcihpfalcoalamcbggme?hl=en&authuser=0)
 
 |                             :computer:Desktop                             |
 | :-----------------------------------------------------------------------: |
@@ -47,67 +46,68 @@ A extensão encontra-se publicada na Chrome Web Store e pode ser baixada por est
   
 ---
 
-## :information_source: Sobre
+## :information_source: About
 
 <div align="center">
 
-Aplicação feita para automatizar a busca de palavras em sites, para automatizar o processo de criação de frases novas para meu estudo de ingles.
+Extension built to automat search for English word definitions and audios using chrome.
 
 ---
 
 </div>
 
-## :arrow_forward: **Executar**
+## :arrow_forward: **Run**
 
 <div align="center">
 
-Para executar esse projeto você precisa baixar este repositório, ter o Gerenciador de Pacotes do Node ([`NPM`](https://www.npmjs.com/get-npm)) ou o Gerenciador de Pacotes YARN ([`YARN`](https://yarnpkg.com/getting-started)) instalado.
+To run this project you need to clone this repository, have the NOde Package Manager ([`NPM`](https://www.npmjs.com/get-npm)) or the YARN Package Manager ([`YARN`](https://yarnpkg.com/getting-started)) installed.
 
 🌐 FrontEnd
 
-Abra o prompt de comando no diretório do projeto na pasta i-plus-one-helper-chrome-extension, e execute os seguintes códigos:
+Open the command prompt in the project directory at i-plus-one-helper-chrome-extension, and execute the following commands:
 
 <details>
-  <summary><i>com <b>npm</b></i></summary>
+  <summary><i>with <b>npm</b></i></summary>
   
-  ```bash
-  # Instalar dependências
-  $ npm install ou npm i
+```bash
+# Install dependencies
 
-# Realizar o build da extensão
+$ npm install ou npm i
+
+# Build the extension
 
 $ ng build
 
-# Carregue o arquivo gerado pelo build na pasta dist no chrome
+# Load on chrome the project built in dist folder
 
 ````
 
 </details>
 
 <details>
-<summary><i>com <b>yarn</b></i></summary>
+<summary><i>with <b>yarn</b></i></summary>
 
 ```bash
-# Instalar dependências
+# Install dependencies
 $ yarn install
 
-# Realizar o build da extensão
+# Build the extension
 
 $ ng build
 
-# Carregue o arquivo gerado pelo build na pasta dist no chrome
+# Load on chrome the project built in dist folder
 
 ````
 
 </details>
 
-> ⚠️ Caso queira que a aplicação seja sempre atualiza enquanto testa no chrome basta usar o comando ng build --watch
+> ⚠️ To get hot-reload for testing extension in chrome use the command ng build --watch
 
 </div>
 
 ---
 
-## :hammer_and_wrench: **Tecnologias**
+## :hammer_and_wrench: **Technologies**
 
 <div align="center">
 
@@ -125,7 +125,7 @@ $ ng build
 
 ---
 
-## :brain: **Conceitos Aplicados**
+## :brain: **Applied Concepts**
 
 <div align="center">
 
@@ -143,21 +143,21 @@ $ ng build
 
 ---
 
-## :sparkles: **Funcionalidades**
+## :sparkles: **Features**
 
 <div align="center">
 
-|           :page_facing_up:            |
-| :-----------------------------------: |
-| Pesquisa palavra nas urls cadastradas |
-|       Adicionar e Deletar urls        |
-|     Urls salvas na Chrome Storage     |
+|       :page_facing_up:        |
+| :---------------------------: |
+|  Search word on pre-set urls  |
+|      Add and Remove urls      |
+| Urls stored in Chrome Storage |
 
 </div>
 
 ---
 
-## :boy: **Autor**
+## :boy: **Author**
 
 <div align="center">
 
@@ -167,7 +167,7 @@ $ ng build
  <sub><b>Gleison de Almeida</b></sub>
 </a>
 
-Desenvolvido com ❤️ por Gleison Almeida 👋🏽 Meus Contatos!
+Developed with ❤️ by Gleison Almeida 👋🏽 Contact me!
 
 [![Linkedin Badge](https://img.shields.io/badge/-Gleison-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/gleison-ribeiro-a65257119)
 [![Github Badge](https://img.shields.io/badge/-Gleison-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/gleisonkz)
@@ -177,7 +177,7 @@ Desenvolvido com ❤️ por Gleison Almeida 👋🏽 Meus Contatos!
 
 ---
 
-## :balance_scale: **Licença**
+## :balance_scale: **License**
 
 <div align="center">
 
