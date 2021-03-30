@@ -51,7 +51,7 @@ A extensão encontra-se publicada na Chrome Web Store e pode ser baixada por est
 
 <div align="center">
 
-Aplicação feita para automatizar a busca de palavras em sites, para automatizar o processo de criação de frases novas para meu estudo de ingles.
+Extensão que realizar a buscar por a busca de uma palavra em um conjunto de url's definidas pelo usuário, feita para agilizar o meu processo de criação de frases para meu estudo de ingles.
 
 ---
 
@@ -70,15 +70,17 @@ Abra o prompt de comando no diretório do projeto na pasta i-plus-one-helper-chr
 <details>
   <summary><i>com <b>npm</b></i></summary>
   
-  ```bash
-  # Instalar dependências
-  $ npm install ou npm i
+```bash
+  
+# Instalar dependências
+
+$ npm install ou npm i
 
 # Realizar o build da extensão
 
 $ ng build
 
-# Carregue o arquivo gerado pelo build na pasta dist no chrome
+# Carregue o arquivo gerado pelo build na pasta dist, no seu gerenciador de extensões do chrome
 
 ````
 
@@ -89,13 +91,14 @@ $ ng build
 
 ```bash
 # Instalar dependências
+
 $ yarn install
 
 # Realizar o build da extensão
 
 $ ng build
 
-# Carregue o arquivo gerado pelo build na pasta dist no chrome
+# Carregue o arquivo gerado pelo build na pasta dist, no seu gerenciador de extensões do chrome
 
 ````
 
