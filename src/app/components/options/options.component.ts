@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { StorageService } from 'src/app/storage.service';
 
 @Component({
@@ -11,33 +12,29 @@ export class OptionsComponent implements OnInit {
   selectable = true;
   removable = true;
   urlControl: FormControl;
-  urls: string[];
+  urls$: Observable<string[]>;
 
   constructor(private storageService: StorageService) {
     this.urlControl = new FormControl('', [
       Validators.required,
       Validators.minLength(2),
-      Validators.pattern(/^https?:\/\//),
+      Validators.pattern(/^https?:\/\/\w+[.]\w+/),
     ]);
+  }
+
+  ngOnInit(): void {
+    this.urls$ = this.storageService.urls$;
+    this.storageService.urls$.subscribe((c) => console.log(c));
   }
 
   addUrl() {
     this.urlControl.valid && this.storageService.set(this.urlControl.value);
-    this.urlControl.setValue('');
+    this.urlControl.reset();
   }
 
-  async ngOnInit(): Promise<void> {
-    this.urls = await this.storageService.get();
-  }
-
-  remove(url: string) {
-    console.log('click');
-    // let currentUrls = await this.storageService.get();
-    // currentUrls = currentUrls.filter((c) => url !== c);
-    // console.log(currentUrls);
-  }
-
-  test() {
-    console.log('Teste');
+  async remove(url: string) {
+    let currentUrls = await this.storageService.get();
+    currentUrls = currentUrls.filter((c) => url !== c);
+    this.storageService.post(currentUrls);
   }
 }
