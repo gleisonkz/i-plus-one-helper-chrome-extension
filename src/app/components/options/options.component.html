@@ -3,7 +3,7 @@
     <header class="side-info__header">
       <span class="side-info__quote">“</span>
     </header>
-    <img class="side-info__flag" src="./assets/images/icon.png" />
+    <img class="side-info__flag" src="./assets/images/eua.png" />
 
     <div class="side-info__top">
       <p class="side-info__description side-info__description--bold">
@@ -35,8 +35,21 @@
 
     <footer class="side-info__footer">
       <div class="social-media-container">
-        <img class="side-info__flag" src="./assets/images/icon.png" />
-        <img class="side-info__flag" src="./assets/images/icon.png" />
+        <a
+          href="https://www.linkedin.com/in/gleison-ribeiro-a65257119/"
+          target="_blank"
+        >
+          <img
+            class="side-info__flag side-info__flag--linkedin"
+            src="./assets/images/in.png"
+          />
+        </a>
+        <a href="mailto:gleisonsubzerokz@gmail.com" target="_blank">
+          <img
+            class="side-info__flag side-info__flag--email"
+            src="./assets/images/mail.png"
+          />
+        </a>
       </div>
       <span class="side-info__quote">”</span>
     </footer>
@@ -57,7 +70,7 @@
       </mat-form-field>
       <button
         (click)="addUrl()"
-        [disabled]="!urlControl.value"
+        [disabled]="urlControl.invalid"
         class="options__field__button"
       >
         <mat-icon class="mat-18">add</mat-icon>
@@ -77,14 +90,13 @@
       >
         <mat-chip
           class="options__chip"
-          *ngFor="let url of urls"
-          [selectable]="selectable"
-          [removable]="removable"
+          *ngFor="let url of urls$ | async"
+          [selectable]="true"
+          [removable]="true"
           (removed)="remove(url)"
-          highlight
         >
-          <span> {{ url }}</span>
-          <mat-icon matChipRemove>cancel</mat-icon>
+          <span highlight> {{ url }}</span>
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
         </mat-chip>
       </mat-chip-list>
     </div>

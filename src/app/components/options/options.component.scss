@@ -58,6 +58,16 @@
     width: 60px;
     height: 60px;
     @include size(40);
+    cursor: pointer;
+
+    &--linkedin {
+      height: rem(40);
+      margin-right: rem(5);
+    }
+
+    &--email {
+      height: rem(44.5);
+    }
   }
 
   &__quote {
@@ -117,7 +127,7 @@
 
       &[disabled] {
         background: rgba(88, 87, 87, 0.87);
-        // pointer-events: none;
+        pointer-events: none;
       }
     }
   }
@@ -127,6 +137,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    user-select: none;
   }
 
   &__panel {
@@ -160,6 +171,10 @@
       }
     }
   }
+}
+
+.social-media-container {
+  @include flex-center;
 }
 
 ::ng-deep .mat-chip-list-wrapper {
