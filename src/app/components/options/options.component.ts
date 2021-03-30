@@ -13,6 +13,7 @@ export class OptionsComponent implements OnInit {
   removable = true;
   urlControl: FormControl;
   urls$: Observable<string[]>;
+  hasValue$: Observable<boolean>;
 
   constructor(private storageService: StorageService) {
     this.urlControl = new FormControl('', [
@@ -23,8 +24,9 @@ export class OptionsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.storageService.update();
     this.urls$ = this.storageService.urls$;
-    this.storageService.urls$.subscribe((c) => console.log(c));
+    this.hasValue$ = this.storageService.hasValue$;
   }
 
   addUrl() {

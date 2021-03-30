@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StorageService {
-  constructor() {
-    (async () => {
-      const values = await this.get();
-      this.urls$$.next(values);
-    })();
-  }
+  constructor() {}
 
   private urls$$ = new BehaviorSubject<string[]>([]);
+  private hasValue$$ = new Subject<boolean>();
 
   urls$ = this.urls$$.asObservable();
+  hasValue$ = this.hasValue$$.asObservable();
 
   get urls(): string[] {
     return this.urls$$.value;
@@ -22,6 +19,12 @@ export class StorageService {
 
   set urls(urls: string[]) {
     this.urls$$.next(urls);
+    this.hasValue$$.next(this.urls.length > 0);
+  }
+
+  async update() {
+    const currentUrls = await this.get();
+    this.urls = currentUrls;
   }
 
   async set(url: string): Promise<void> {
@@ -59,7 +62,7 @@ export class StorageService {
 
     chrome.storage.sync.set({ urls: items }, () => {
       console.log('Storage Inicializado ' + items);
-      this.urls$$.next(items);
+      this.urls = items;
     });
   }
 

@@ -177,6 +177,16 @@
   @include flex-center;
 }
 
+.no-data {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: $color-secondary;
+  font-size: rem(22);
+  font-family: Calibri;
+  margin-top: rem(30);
+}
+
 ::ng-deep .mat-chip-list-wrapper {
   flex-direction: column !important;
   align-items: flex-start !important;

@@ -84,6 +84,7 @@
       </mat-card-header>
 
       <mat-chip-list
+        *ngIf="hasValue$ | async"
         class="options__chip-list"
         #chipList
         aria-label="url selection"
@@ -99,6 +100,11 @@
           <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
         </mat-chip>
       </mat-chip-list>
+
+      <p class="no-data" *ngIf="!(hasValue$ | async)">
+        <span>Não há nenhuma URL cadastrada</span>
+        <span>tente inserir uma url no campo acima</span>
+      </p>
     </div>
   </div>
 </div>
