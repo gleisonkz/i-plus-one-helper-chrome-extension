@@ -7,7 +7,14 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class StorageService {
   constructor() {}
 
-  private urls$$ = new BehaviorSubject<string[]>([]);
+  private urls$$ = new BehaviorSubject<string[]>([
+    `https://www.wordreference.com/enpt/[word]`,
+    `https://context.reverso.net/traducao/ingles-portugues/[word]`,
+    `https://www.oxfordlearnersdictionaries.com/us/definition/english/[word]?q=[word]`,
+    `https://dictionary.cambridge.org/pt/dicionario/ingles/[word]`,
+    `https://translate.google.com.br/?hl=pt&sl=en&tl=pt&text=[word]&op=translate`,
+    `https://youglish.com/pronounce/[word]/english?`,
+  ]);
   private hasValue$$ = new Subject<boolean>();
 
   urls$ = this.urls$$.asObservable();
@@ -23,6 +30,7 @@ export class StorageService {
   }
 
   async update() {
+    debugger;
     const currentUrls = await this.get();
     this.urls = currentUrls;
   }
@@ -48,21 +56,15 @@ export class StorageService {
   }
 
   async initialize() {
-    const hasData = (await this.get()).length > 0;
+    const hasData = (await this.get())?.length > 0;
     if (hasData) return;
 
-    const items = [
-      `https://www.wordreference.com/enpt/[word]`,
-      `https://context.reverso.net/traducao/ingles-portugues/[word]`,
-      `https://www.oxfordlearnersdictionaries.com/us/definition/english/[word]?q=[word]`,
-      `https://dictionary.cambridge.org/pt/dicionario/ingles/[word]`,
-      `https://translate.google.com.br/?hl=pt&sl=en&tl=pt&text=[word]&op=translate`,
-      `https://youglish.com/pronounce/[word]/english?`,
-    ];
+    const defaultUrls = this.urls;
 
-    chrome.storage.sync.set({ urls: items }, () => {
-      this.urls = items;
+    chrome.storage.sync.set({ urls: defaultUrls }, () => {
+      this.urls = defaultUrls;
     });
+    console.info('Storage Initialized');
   }
 
   async openWindow() {

@@ -20,8 +20,10 @@ export class PopupComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    this.storageService.update();
     this.$input.nativeElement.focus();
     this.urls$ = this.storageService.urls$;
+    console.log(this.storageService.urls);
   }
 
   async search() {
@@ -29,6 +31,9 @@ export class PopupComponent implements OnInit {
     const word = this.wordControl.value;
     const newWindow = (await this.storageService.openWindow()) as chrome.windows.Window;
     this.urls$.subscribe((urls) => {
+      debugger;
+      console.log(urls);
+
       urls.forEach((url) => {
         const newUrl = url.replace(/\[word\]/g, word);
         chrome.tabs.create({ url: newUrl, windowId: newWindow.id });
