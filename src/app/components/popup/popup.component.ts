@@ -30,15 +30,15 @@ export class PopupComponent implements OnInit {
     if (this.wordControl.invalid) return;
     const word = this.wordControl.value;
     const newWindow = (await this.storageService.openWindow()) as chrome.windows.Window;
+    chrome.windows.update(newWindow.id, { state: 'maximized' });
+    const tabs = newWindow.tabs;
+    const tabID = tabs && tabs[0].id;
     this.urls$.subscribe((urls) => {
-      debugger;
-      console.log(urls);
-
       urls.forEach((url) => {
         const newUrl = url.replace(/\[word\]/g, word);
         chrome.tabs.create({ url: newUrl, windowId: newWindow.id });
-        chrome.windows.update(newWindow.id, { state: 'maximized' });
       });
+      chrome.tabs.remove(tabID!);
       window.close();
     });
   }
