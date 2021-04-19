@@ -19,5 +19,5 @@
     "default_popup": "/index.html#/popup"
   },
   "options_page": "/index.html#/options",
-  "permissions": ["tabs", "storage"]
+  "permissions": ["storage"]
 }
