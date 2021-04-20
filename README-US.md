@@ -52,6 +52,12 @@ Extension deployed at [Chrome Web Store](https://chrome.google.com/webstore/cate
 
 Extension built to automat search for English word definitions and audios using chrome.
 
+I'm an English learner, and I use the [Sentence Mining](https://www.youtube.com/playlist?list=PLl_7J18zHKKCwoplWshSDTDmWrvez27Qr) technique touch by Mairo Vergara to built I+1 phrases.
+
+My goal was to automate part of this process, so I built this extension.
+
+This extension allow you to search for an English word into a set o URL's by user configuration using the metadata [word].
+
 ---
 
 </div>
@@ -129,15 +135,15 @@ $ ng build
 
 <div align="center">
 
-|      :page_facing_up:      |
-| :------------------------: |
-|   Hash Location Strategy   |
-|       Reactive Forms       |
-|  Observable Data Service   |
-|    HighLight Directive     |
-|  Chrome Background Script  |
-|       Chrome Storage       |
-| Custom Highlight Directive |
+|       :page_facing_up:       |
+| :--------------------------: |
+|    Hash Location Strategy    |
+|        Reactive Forms        |
+|   Observable Data Service    |
+| Chrome Background Script API |
+|      Chrome Storage API      |
+|  Custom Highlight Directive  |
+|  Custom Error State Matcher  |
 
 </div>
 

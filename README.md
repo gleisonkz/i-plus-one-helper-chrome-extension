@@ -51,7 +51,11 @@ A extensão encontra-se publicada na Chrome Web Store e pode ser baixada por est
 
 <div align="center">
 
-Extensão que realizar a buscar por a busca de uma palavra em um conjunto de url's definidas pelo usuário, feita para agilizar o meu processo de criação de frases para meu estudo de ingles.
+Sou estudante de inglês e utilizo a técnica ensinada pelo Mairo Vergara de [mineração de sentenças](https://www.youtube.com/playlist?list=PLl_7J18zHKKCwoplWshSDTDmWrvez27Qr) para produção de frases I+1.
+
+Com o objetivo de automatizar parte desse processo de busca criei está extensão.
+
+Essa extensão permite realizar a buscar por a busca de uma palavra em um conjunto de url's definidas pelo usuário na parte de configurações, utilizando como metadado a palavra [word].
 
 ---
 
@@ -104,7 +108,7 @@ $ ng build
 
 </details>
 
-> ⚠️ Caso queira que a aplicação seja sempre atualiza enquanto testa no chrome basta usar o comando ng build --watch
+> ⚠️ Caso queira que a aplicação seja sempre atualizada enquanto testa no chrome basta usar o comando ng build --watch
 
 </div>
 
@@ -132,15 +136,15 @@ $ ng build
 
 <div align="center">
 
-|      :page_facing_up:      |
-| :------------------------: |
-|   Hash Location Strategy   |
-|       Reactive Forms       |
-|  Observable Data Service   |
-|    HighLight Directive     |
-|  Chrome Background Script  |
-|       Chrome Storage       |
-| Custom Highlight Directive |
+|       :page_facing_up:       |
+| :--------------------------: |
+|    Hash Location Strategy    |
+|        Reactive Forms        |
+|   Observable Data Service    |
+| Chrome Background Script API |
+|      Chrome Storage API      |
+|  Custom Highlight Directive  |
+|  Custom Error State Matcher  |
 
 </div>
 
@@ -150,11 +154,11 @@ $ ng build
 
 <div align="center">
 
-|           :page_facing_up:            |
-| :-----------------------------------: |
-| Pesquisa palavra nas urls cadastradas |
-|       Adicionar e Deletar urls        |
-|     Urls salvas na Chrome Storage     |
+|                    :page_facing_up:                     |
+| :-----------------------------------------------------: |
+| Pesquisa uma palavra/frase em todas as URLs cadastradas |
+|                Adicionar e Deletar URLs                 |
+|              URLs salvas na Chrome Storage              |
 
 </div>
 
