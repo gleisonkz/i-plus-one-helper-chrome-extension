@@ -55,7 +55,7 @@ Sou estudante de inglês e utilizo a técnica ensinada pelo Mairo Vergara de [mi
 
 Com o objetivo de automatizar parte desse processo de busca criei está extensão.
 
-Essa extensão permite realizar a buscar por a busca de uma palavra em um conjunto de url's definidas pelo usuário na parte de configurações, utilizando como metadado a palavra [word].
+Essa extensão permite realizar a busca de uma palavra em um conjunto de url's definidas pelo usuário na parte de configurações, utilizando como metadado a palavra [word].
 
 ---
 
