@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { StorageService } from 'src/app/storage.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.scss'],
 })
-export class OptionsComponent implements OnInit {
+export class OptionsPageComponent implements OnInit {
   visible = true;
   selectable = true;
   removable = true;

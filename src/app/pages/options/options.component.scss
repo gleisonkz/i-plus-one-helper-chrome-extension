@@ -10,83 +10,6 @@
   column-gap: rem(60);
 }
 
-.side-info {
-  display: flex;
-  flex-direction: column;
-  grid-column: 1;
-  background-color: $color-primary;
-  border-radius: 8px;
-  height: rem(600);
-  padding: rem(5 10 20 10);
-  overflow: hidden;
-  position: relative;
-
-  &__header {
-    height: rem(55);
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__bottom {
-    margin-top: rem(45);
-  }
-
-  &__circle {
-    background-color: $color-secondary;
-    border-radius: 50%;
-    @include size(600);
-    position: absolute;
-    top: 414px;
-    left: -46px;
-  }
-
-  &__description {
-    z-index: 2;
-    color: $color-surface;
-    font-size: rem(14);
-    font-family: Calibri;
-    margin-top: rem(10);
-
-    &--bold {
-      margin-top: rem(10);
-
-      font-weight: bold;
-    }
-  }
-
-  &__flag {
-    width: 60px;
-    height: 60px;
-    @include size(40);
-    cursor: pointer;
-
-    &--linkedin {
-      height: rem(40);
-      margin-right: rem(5);
-    }
-
-    &--email {
-      height: rem(44.5);
-    }
-  }
-
-  &__quote {
-    font-size: rem(120);
-    font-family: Georgia, serif;
-    position: relative;
-    top: -14px;
-    color: $color-surface;
-  }
-
-  &__footer {
-    position: relative;
-    margin-top: auto;
-    height: rem(37);
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
 .wrapper {
   position: relative;
 }
@@ -171,10 +94,6 @@
       }
     }
   }
-}
-
-.social-media-container {
-  @include flex-center;
 }
 
 .no-data {

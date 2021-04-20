@@ -1,0 +1,56 @@
+<div class="container">
+  <side-info></side-info>
+  <div class="options">
+    <div class="wrapper">
+      <mat-form-field class="options__field" appearance="fill">
+        <mat-label>Insira uma url</mat-label>
+        <input
+          #input
+          matInput
+          type="text"
+          (keyup.enter)="addUrl()"
+          [formControl]="urlControl"
+        />
+
+        <mat-error> Url inválida</mat-error>
+      </mat-form-field>
+      <button
+        (click)="addUrl()"
+        [disabled]="urlControl.invalid"
+        class="options__field__button"
+      >
+        <mat-icon class="mat-18">add</mat-icon>
+        <span>INSERIR</span>
+      </button>
+    </div>
+
+    <div class="options__panel mat-elevation-z1">
+      <mat-card-header>
+        <mat-card-title> URL's cadastradas </mat-card-title>
+      </mat-card-header>
+
+      <mat-chip-list
+        *ngIf="hasValue$ | async"
+        class="options__chip-list"
+        #chipList
+        aria-label="url selection"
+      >
+        <mat-chip
+          class="options__chip"
+          *ngFor="let url of urls$ | async"
+          [selectable]="true"
+          [removable]="true"
+          (removed)="remove(url)"
+        >
+          <span highlight> {{ url }}</span>
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+
+      <p class="no-data" *ngIf="!(hasValue$ | async)">
+        <span>Não há nenhuma URL cadastrada</span>
+        <span>tente inserir uma url no campo acima</span>
+      </p>
+    </div>
+  </div>
+</div>
