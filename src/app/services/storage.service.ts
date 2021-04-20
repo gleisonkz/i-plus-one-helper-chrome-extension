@@ -5,8 +5,6 @@ import { BehaviorSubject, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class StorageService {
-  constructor() {}
-
   private urls$$ = new BehaviorSubject<string[]>([
     `https://www.wordreference.com/enpt/[word]`,
     `https://context.reverso.net/traducao/ingles-portugues/[word]`,
